@@ -2,7 +2,8 @@ PERPLEXITY_API_KEY = 'PERPLEXITY_API_KEY' # the key used to access the perplexit
 OPEN_AI_API_KEY = 'OPEN_AI_API_KEY' # the key used to access the openai api key in the .env file
 
 # this has access to the internet but its not the most powerful model out there
-PERPLEXITY_ONLINE_MODEL = 'sonar-medium-online'
+PERPLEXITY_ONLINE_MODEL = 'sonar-medium-online' # models - https://docs.perplexity.ai/docs/model-cards
+OPEN_AI_MODEL = 'gpt-3.5-turbo-0125' # models - https://platform.openai.com/docs/models/gpt-3-5-turbo
 
 # prompts 
 # does not really give an entire paragraph, but might as well put it in the prompt 

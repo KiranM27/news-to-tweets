@@ -6,14 +6,14 @@ from langchain_core.prompts.chat import (
     HumanMessagePromptTemplate,
     SystemMessagePromptTemplate,
 )
-from constants import OPEN_AI_API_KEY, OPEN_AI_MODEL_TEMPERATURE
+from constants import OPEN_AI_API_KEY, OPEN_AI_MODEL_TEMPERATURE, OPEN_AI_MODEL
 
 load_dotenv()  # take environment variables from .env.
 
 class XThreadGenerator:
     def __init__(self):
         open_ai_api_key = os.getenv(OPEN_AI_API_KEY)
-        chat = ChatOpenAI(temperature=OPEN_AI_MODEL_TEMPERATURE, openai_api_key=open_ai_api_key)
+        chat = ChatOpenAI(temperature=OPEN_AI_MODEL_TEMPERATURE, model_name=OPEN_AI_MODEL, openai_api_key=open_ai_api_key)
 
         system = "You are a helpful assistant that translates {input_language} to {output_language}."
         human = "{text}"
