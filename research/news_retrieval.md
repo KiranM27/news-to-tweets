@@ -37,6 +37,9 @@ One interesting thing is that they also have a [LangChain integration](https://p
 
 # Perplexity AI's Pro Search 
 
+[Link to PPLX Online LLMs](https://www.perplexity.ai/hub/blog/introducing-pplx-online-llms)
+[PPLX Docs](https://docs.perplexity.ai/docs/getting-started)
+
 This is a pretty interesting. Perplexity's Pro Search should be able to not just get the latest news articles from the internet, but also be able to summarise them as well. This helps combitne both the news retrieval and summarisation of news modules into one. It also has an integration with the LangChain API, which makes switching between the Perplexity Model and other models pretty easy.
 
 That being said, it comes with a price. The pricing plan can be found below:
