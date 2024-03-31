@@ -37,5 +37,21 @@ One interesting thing is that they also have a [LangChain integration](https://p
 
 # Perplexity AI's Pro Search 
 
-This is a pretty interesting 
+This is a pretty interesting. Perplexity's Pro Search should be able to not just get the latest news articles from the internet, but also be able to summarise them as well. This helps combitne both the news retrieval and summarisation of news modules into one. It also has an integration with the LangChain API, which makes switching between the Perplexity Model and other models pretty easy.
 
+That being said, it comes with a price. The pricing plan can be found below:
+
+<br/>
+
+![perplexity_pricing](../images/perplexity_pricing.png)
+
+<br/>
+
+I will most probably be using the `70B` model for this project as I want to optimise for the quality of the responses from the LLM. 1$ per 1M tokens does not seem too bad, but I'll keep an eye on the pricing as the days go by and see if I want to drop to a less powerful model to save some money.
+
+There is also the option of gettig the Perplextiy Pro Subscription which gives you $5 in credits. However, running the 70B model once each day for a month should consume less than $20 in credits, thus making the Pro Subscription not worth it. I think i will stick to the pay as you go model for now.
+
+
+# Conclusion 
+
+All in all, I think I will be using the Perplexity AI's Pro Search for this project. It is a bit more expensive than the Serper Google Search API, but it is a lot more powerful and can do a lot more things. Additionally, I have also been wanting to play around more with the LangChain API, so this is a good opportunity to do so. Perplexity AI's pro search it is!
