@@ -21,8 +21,3 @@ class NewsRetreival:
         response = self.chain.invoke({"input": query})
         print(f"[INFO] Retrieved news for the {industry} industry")
         return response.content
-    
-if __name__ == "__main__":
-    news = NewsRetreival()
-    crypto_news = news.get_news(CRYPTO_INDUSTRY)
-    ai_news = news.get_news(AI_INDUSTRY)
