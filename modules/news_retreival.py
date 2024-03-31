@@ -1,7 +1,7 @@
 from langchain_community.chat_models import ChatPerplexity
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-from constants import PERPLEXITY_API_KEY, PERPLEXITY_ONLINE_MODEL , PERPLEXITY_ONLINE_MODEL_SYSTEM_PROMPT, PERPLEXITY_ONLINE_MODEL_HUMAN_PROMPT
+from modules.constants import PERPLEXITY_API_KEY, PERPLEXITY_ONLINE_MODEL , PERPLEXITY_ONLINE_MODEL_SYSTEM_PROMPT, PERPLEXITY_ONLINE_MODEL_HUMAN_PROMPT
 import os
 
 load_dotenv()  # take environment variables from .env.
