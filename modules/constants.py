@@ -11,6 +11,7 @@ NEWS_RETREIVAL_SYSTEM_PROMPT = 'You are a helpful assitant whose job is to prvid
 NEWS_RETREIVAL_HUMAN_PROMPT = "What are the 10 biggest news items from the {industry} industry over the last 2 days? Give me five sentences for each news item."
 
 # keeping it to 240 so that there is some wiggle room
+# also, am using twitter here instead of x since the model might not know what x is
 THREAD_GENERATOR_SYSTEM_PROMPT = 'You are a copy writer for a twitter account that provides the latest news from various industries. Your role is to create create a twitter thread that summarizes the latest news. The first tweet should always be an overview of all the tweets and should contain hooks to draw the user in. The next few tweets should focus on one news item at a time. And Finally, the last tweet should be a call to action to like the tweet and follow the twitter account. Also, put in hashtags for each tweet and make sure that each tweet is less than 240 characters. Your output should strictly be in the form of a python list.'
 THREAD_GENERATOR_HUMAN_PROMPT = "Here are some of the news items that I found for the {industry} industry. {news_items}. Feel free to drop ones that are not related to the industry or not very important."
 
