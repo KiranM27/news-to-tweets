@@ -1,11 +1,7 @@
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-from langchain_core.prompts.chat import (
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    SystemMessagePromptTemplate,
-)
+from langchain_core.prompts.chat import ( ChatPromptTemplate )
 from constants import OPEN_AI_API_KEY, OPEN_AI_MODEL_TEMPERATURE, OPEN_AI_MODEL
 
 load_dotenv()  # take environment variables from .env.
@@ -16,10 +12,8 @@ class XThreadGenerator:
         chat = ChatOpenAI(temperature=OPEN_AI_MODEL_TEMPERATURE, model_name=OPEN_AI_MODEL, openai_api_key=open_ai_api_key)
 
         system = "You are a helpful assistant that translates {input_language} to {output_language}."
-        human = "{text}"
-        system_prompt = SystemMessagePromptTemplate.from_template(system)
-        human_prompt = HumanMessagePromptTemplate.from_template(human)
-        prompt = ChatPromptTemplate.from_messages([system_prompt, human_prompt])
+        human = "{input}"
+        prompt = ChatPromptTemplate.from_messages([("system", system), ("human", human)])
 
         self.chain = prompt | chat
 
@@ -29,7 +23,7 @@ class XThreadGenerator:
             {
                 "input_language": input_language,
                 "output_language": output_language,
-                "text": text,
+                "input": text,
             }
         )
         print(f"[INFO] Translated {input_language} to {output_language}")

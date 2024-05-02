@@ -8,7 +8,7 @@ OPEN_AI_MODEL = 'gpt-3.5-turbo-0125' # models - https://platform.openai.com/docs
 # prompts 
 # does not really give an entire paragraph, but might as well put it in the prompt 
 PERPLEXITY_ONLINE_MODEL_SYSTEM_PROMPT = 'You are a helpful assitant whose job is to prvide the latest news from various industries. Give me atleast one paragraph about each of the latest news items.'
-PERPLEXITY_ONLINE_MODEL_HUMAN_PROMPT = "What are some of the biggest news from the {industry} industry over the last few days?"
+PERPLEXITY_ONLINE_MODEL_HUMAN_PROMPT = "What are the 10 biggest news items from the {industry} industry over the last 2 days? Give me five sentences for each news item."
 
 # temperatures 
 PERPLEXITY_ONLINE_MODEL_TEMPERATURE = 0
