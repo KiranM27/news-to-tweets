@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts.chat import ( ChatPromptTemplate )
-from constants import OPEN_AI_API_KEY, OPEN_AI_MODEL_TEMPERATURE, OPEN_AI_MODEL
+from modules.constants import OPEN_AI_API_KEY, OPEN_AI_MODEL_TEMPERATURE, OPEN_AI_MODEL, THREAD_GENERATOR_SYSTEM_PROMPT, THREAD_GENERATOR_HUMAN_PROMPT
 
 load_dotenv()  # take environment variables from .env.
 
@@ -11,24 +11,17 @@ class XThreadGenerator:
         open_ai_api_key = os.getenv(OPEN_AI_API_KEY)
         chat = ChatOpenAI(temperature=OPEN_AI_MODEL_TEMPERATURE, model_name=OPEN_AI_MODEL, openai_api_key=open_ai_api_key)
 
-        system = "You are a helpful assistant that translates {input_language} to {output_language}."
+        system = THREAD_GENERATOR_SYSTEM_PROMPT
         human = "{input}"
         prompt = ChatPromptTemplate.from_messages([("system", system), ("human", human)])
 
         self.chain = prompt | chat
 
-    def generate(self, input_language: str, output_language: str, text: str):
-        print(f"[INFO] Translating {input_language} to {output_language}")
-        response = self.chain.invoke(
-            {
-                "input_language": input_language,
-                "output_language": output_language,
-                "input": text,
-            }
-        )
-        print(f"[INFO] Translated {input_language} to {output_language}")
-        return response.content
+    def generate(self, industry: str, news_items: str):
+        print(f"[INFO] Generating thread for the {industry} industry")
 
-if __name__ == "__main__":
-    generator = XThreadGenerator()
-    print(generator.generate("english", "spanish", "Hello, how are you?"))
+        query = THREAD_GENERATOR_HUMAN_PROMPT.format(industry=industry, news_items=news_items)
+        response = self.chain.invoke({"input": query})
+
+        print(f"[INFO] Generated thread for the {industry} industry")
+        return response.content
