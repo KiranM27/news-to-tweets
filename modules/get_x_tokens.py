@@ -21,7 +21,7 @@ class GetXTokens:
             "response_type": "code",
             "client_id": self.x_oauth2_client_id,
             "redirect_uri": X_REDIRECT_URL,
-            "scope": "tweet.read users.read follows.read offline.access",
+            "scope": "tweet.read users.read follows.read offline.access tweet.write like.read like.write",
             "state": "state",
             "code_challenge": "challenge",
             "code_challenge_method": "plain"
@@ -55,4 +55,3 @@ class GetXTokens:
         code = input("Enter the code: ")
         tokens = self.exchange_code_for_tokens(code)
         print(f"Tokens: {tokens}")
-        
