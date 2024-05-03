@@ -22,3 +22,7 @@ OPEN_AI_MODEL_TEMPERATURE = 0.5
 # industry names
 CRYPTO_INDUSTRY = 'crypto and blockchain'
 AI_INDUSTRY = 'artificial intelligence (ai)'
+
+# x oauth constants
+X_OAUTH2_CLIENT_ID = 'X_OAUTH2_CLIENT_ID'
+X_REDIRECT_URL = 'http://127.0.0.1'
