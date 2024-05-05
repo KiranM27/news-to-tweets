@@ -27,7 +27,6 @@ class PostXThread:
         }
 
         response = requests.get(url, headers=headers)
-        print(response.json())
         return response.json()
     
     def refresh_x_token(self):
@@ -72,12 +71,13 @@ class PostXThread:
             "Authorization": f"Bearer {self.x_access_token}"
         }
 
-        data = {
-            "text": message
-        }
-
+        data = {}
+            
         if reply_to:
-            data["in_reply_to_tweet_id"] = reply_to
+            data['reply'] = {}
+            data['reply']["in_reply_to_tweet_id"] = reply_to
+
+        data["text"] = message
 
         response = requests.post(url, headers=headers, data=json.dumps(data))
         return response.json()
