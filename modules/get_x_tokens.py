@@ -5,7 +5,8 @@ import os
 import urllib
 import requests
 from dotenv import load_dotenv
-from modules.constants import X_OAUTH2_CLIENT_ID, X_REDIRECT_URL
+from modules.constants import X_OAUTH2_CLIENT_ID, X_REDIRECT_URL, X_TOKENS_FILE, X_ACCESS_TOKEN, X_REFRESH_TOKEN
+from modules.persist_dict_data import PersistDictData
 
 load_dotenv()  # take environment variables from .env.
 
@@ -54,4 +55,12 @@ class GetXTokens:
         print(f"Auth URL: {auth_url}")
         code = input("Enter the code: ")
         tokens = self.exchange_code_for_tokens(code)
-        print(f"Tokens: {tokens}")
+        access_token = tokens.get("access_token")
+        refresh_token = tokens.get("refresh_token")
+
+        # save the tokens
+        persist_dict_data = PersistDictData()
+        persist_dict_data.save_key_value(X_TOKENS_FILE, X_ACCESS_TOKEN, access_token)
+        persist_dict_data.save_key_value(X_TOKENS_FILE, X_REFRESH_TOKEN, refresh_token)
+
+        print("The tokens have been saved.")
