@@ -25,4 +25,6 @@ AI_INDUSTRY = 'artificial intelligence (ai)'
 
 # x oauth constants
 X_OAUTH2_CLIENT_ID = 'X_OAUTH2_CLIENT_ID'
+X_ACCESS_TOKEN = 'X_ACCESS_TOKEN'
+X_REFRESH_TOKEN = 'X_REFRESH_TOKEN'
 X_REDIRECT_URL = 'http://127.0.0.1'
